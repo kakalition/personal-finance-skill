@@ -450,6 +450,7 @@ check "bad range code" "$(printf '%s' "$BADRANGE" | jqv "d['error']['code']")" "
 BADCSVFILE="$("$PY" "$SCRIPTS/csv_io.py" import "$TMPDIR_SMOKE/missing.csv" --account Everyday 2>/dev/null)"; rc=$?
 [ "$rc" = "1" ] && pass || fail "missing csv exit ($rc)"
 check "missing csv code" "$(printf '%s' "$BADCSVFILE" | jqv "d['error']['code']")" "not_found"
+expect_fail "delete unknown transaction" "not_found" run "$SCRIPTS/transactions.py" delete 999999
 expect_usage "bad direction" run "$SCRIPTS/transactions.py" add --account Everyday --amount 1 --date 2026-01-01 --direction sideways
 
 # ===========================================================================
