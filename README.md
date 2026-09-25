@@ -4,6 +4,8 @@ A portable [Agent Skill](https://skills.sh) for managing personal finances in a
 local SQLite ledger, with one currency chosen by the user. It works with any
 Agent Skills host (nanobot, Claude Code, Codex, Kilo, OpenClaw, and others).
 
+Source: <https://github.com/kakalition/personal-finance-skill>
+
 Everything executable lives in focused Python scripts under
 `personal-finance/scripts/`. The agent runs a script and reads its JSON output.
 There is no server, no network access, and no third-party dependency: the
@@ -24,11 +26,10 @@ and never installs or mutates a scheduler itself.
 
 ## Install
 
-With the skills.sh CLI, replacing `OWNER` with the GitHub owner after
-publishing:
+With the skills.sh CLI:
 
 ```bash
-npx --yes skills@latest add OWNER/personal-finance-skill \
+npx --yes skills@latest add kakalition/personal-finance-skill \
   --skill personal-finance --agent <your-agent> --copy --yes
 ```
 
@@ -36,7 +37,7 @@ For nanobot specifically, `--agent openclaw` is the marketplace agent id, and
 it copies into `<workspace>/skills`:
 
 ```bash
-npx --yes skills@latest add OWNER/personal-finance-skill \
+npx --yes skills@latest add kakalition/personal-finance-skill \
   --skill personal-finance --agent openclaw --copy --yes
 ```
 
